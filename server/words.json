@@ -1,0 +1,35 @@
+
+ {      "words":  [
+            {
+            "id":1,
+            "type":"insecte",
+            "nom":"abeille"
+        },
+        {
+            "id":2,
+            "type":"véhicule",
+            "nom":"voiture"
+        },
+        {
+            "id":3,
+            "type":"animal",
+            "nom":"kangourou"
+        },
+        {
+            "id":4,
+            "type":"véhicule",
+            "nom":"hélicoptère"
+        },
+        {
+            "id":5,
+            "type":"objet",
+            "nom":"oreiller"
+        },
+        {
+            "id":6,
+            "type":"instrument",
+            "nom":"guitare"
+        }
+    ]
+       
+       }
