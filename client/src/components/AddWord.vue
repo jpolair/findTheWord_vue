@@ -5,14 +5,18 @@
         <div><label for="wordToAdd">Mot à ajouter</label><input v-model="wordToAdd" type="text"></div>
         <div v-if="errorWord">Pas de chiffre ou de caractère spéciaux dans le mot</div>
         <div><label for="evidenceToAdd">Indice du mot ajouté</label><input v-model="evidenceToAdd" type="text"></div>
-        <div><label for="levelToAdd">Niveau de difficulté de 1 à 5</label><input v-model="levelToAdd" type="number"></div>
-        <div v-if="errorLevel">Ce champs doit contenir un chiffre de 1 à 5</div>
+        <div><label for="levelToAdd">Niveau de difficulté de 1 à 3</label><input min="1" max="3" v-model="levelToAdd" type="number"></div>
+        <div v-if="errorLevel">Ce champs doit contenir un chiffre de 1 à 3</div>
         <div><button class="add-word" @click="addWord" >Ajout du mot</button></div>
         <div v-if="successAdd">
             <p v-for="(data, index) in addedWord" :key="index">Le mot {{ data.word }} a été ajouté son indice est {{ data.evidence }} et son niveau de difficulté est {{ data.level }} </p>
         </div>
       </div>
+      <!-- <input  type="text" v-model="wordToDelete">
+      <button @click="deleteWord(wordToDelete)">supp</button> -->
+      <router-link to="/">Retourne jouer</router-link>
   </div>
+  
 </template>
 
 <script>
@@ -27,7 +31,7 @@ export default {
           successAdd:false,
           errorWord:false,
           errorLevel:false,
-          addedWord:[]
+          addedWord:[],
       }
   },
   methods: {
@@ -48,6 +52,16 @@ export default {
              console.log("erreur : ", response);
             }
         );
+    },
+    deleteWord: function (wordToDelete) {
+        this.$http.delete("http://localhost:3000/word/word", { body : { word:wordToDelete }}).then( 
+            response => {
+            console.log('supprimé ' + wordToDelete)
+            console.log('body' , response.body)
+        },
+        response => {
+            console.log('erreur ', response)
+        })
     }
   }
 }
@@ -74,6 +88,8 @@ input {
     border:1px solid #ccc;
     height:25px;
     width:50%;
+    padding:10px;
+    font-size:24px;
 }
 button.add-word {
     background:#11ee88;
