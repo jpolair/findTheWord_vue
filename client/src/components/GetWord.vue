@@ -36,7 +36,7 @@ export default {
   },
   mounted: function() {
     console.log(this.$refs);
-    this.$http.get("http://localhost:3000/word").then(
+    this.$http.get("/word").then(
       response => {
         this.words = response.body;
         this.howManyWords = response.body.length;

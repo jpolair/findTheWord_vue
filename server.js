@@ -65,7 +65,7 @@ app.post('/word' , function(req,res){
         console.log('body ', req.body)
     })
 }) 
-
+console.log('env ', process.env)
 app.delete('/word/:word' , function(req, res) {
     Word.deleteOne(({word:req.params.word} , function (err, word) {
         if (err) {

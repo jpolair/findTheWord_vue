@@ -43,7 +43,7 @@ export default {
             }
             this.addedWord.push(data);
             this.wordToAdd = ''; this.evidenceToAdd = ''; this.levelToAdd = 1;
-            this.$http.post("http://localhost:3000/word" , data).then(
+            this.$http.post("/word" , data).then(
             response => {
             console.log(`le mot ${data.word} a été ajouté`);
             this.successAdd = true;
@@ -54,7 +54,7 @@ export default {
         );
     },
     deleteWord: function (wordToDelete) {
-        this.$http.delete("http://localhost:3000/word/word", { body : { word:wordToDelete }}).then( 
+        this.$http.delete("/word/word", { body : { word:wordToDelete }}).then( 
             response => {
             console.log('supprimé ' + wordToDelete)
             console.log('body' , response.body)
