@@ -1,6 +1,7 @@
 <template>
   <div>
    <h1>{{ title }}</h1>
+   <h2>{{ subtitle }}</h2>
    <p><router-link to="AddWord">Ajoute des mots</router-link></p>
    <p>Il y a {{ howManyWords }} mots en base de données</p>
    <div class="score-view">SCORE : {{score}}</div>
@@ -27,6 +28,7 @@ export default {
   data() {
     return {
       title: "Find The Word, find it....",
+      subtitle: "The more you play, the more you win!!!",
       wordToFind: "",
       attempt: "",
       numberOfcases: 0,
@@ -131,7 +133,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1 {
+h1,
+h2 {
   text-align: center;
 }
 .game-container {
@@ -151,7 +154,6 @@ h1 {
   display:inline-block;
   height:70px;
   width:70px;
-  border-radius:10px;
   background:#333;
   margin-right:20px;
   text-align:center;
@@ -161,7 +163,6 @@ h1 {
   display:inline-block;
   height:70px;
   width:70px;
-  border-radius:10px;
   background:#11ee88;
   margin-right:20px;
   text-align:center;
@@ -175,30 +176,32 @@ h1 {
 }
 button.add-word {
     background:#11ee88;
-    border-radius:5px;
     color:white;
-    width:150px;
-    height:40px;
+    width:180px;
+    height:60px;
     border: solid 1px #11ee88;
-    font-weight:bold;
+    font-size:1.1em;
+    outline: none;
 }
 button.help {
     background:#ffa500;
-    border-radius:5px;
     color:white;
-    width:150px;
-    height:40px;
+    width:180px;
+    height:60px;
     border: solid 1px #ffa500;
-    font-weight:bold;
+    font-size:1.1em;
+    outline:none;
+    margin-right:15px;
 }
 button.give-up {
     background:#ee1122;
-    border-radius:5px;
     color:white;
-    width:150px;
-    height:40px;
+    width:180px;
+    height:60px;
     border: solid 1px #ee1122;
-    font-weight:bold;
+    font-size:1.1em;
+    outline:none;
+    margin-right:15px;
 }
 
 </style>
